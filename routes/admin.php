@@ -12,7 +12,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// here just for  users routes 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//u can write all admin routes here 
