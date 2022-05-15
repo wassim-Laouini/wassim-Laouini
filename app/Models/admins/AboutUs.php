@@ -19,4 +19,7 @@ class AboutUs extends Model
         'created_at',
         'updated_at',
     ];
+    public function Scopeactive($q){
+        return $q->where('status',1);
+    }
 }

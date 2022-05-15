@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
-            $table->string('status');
+            $table->tinyInteger('status')->default(0)->comment('1 is refrence to active , 0 is inactive');
             $table->timestamps();
             
             
