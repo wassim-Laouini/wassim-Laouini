@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class Contact_usController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['userpermission:show_about_us'])->only('index','show');
+        $this->middleware(['userpermission:create_coutact_us'])->only('store');
+        $this->middleware(['userpermission:update_coutact_us'])->only('update');
+        $this->middleware(['userpermission:delete_coutact_us'])->only('destroy');
+        $this->middleware(['userpermission:active_about_us'])->only('active');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +26,7 @@ class Contact_usController extends Controller
      */
     public function index()
     {
-        $contact = contact_us::get();
+        $contact = contact_us::all();
 
         return ApiResponse('contact us data',$contact,200);
     }
@@ -34,7 +43,8 @@ class Contact_usController extends Controller
             'phone'=>$request->phone,
             'email'=>$request->email,
             'upwork_link'=>$request->upwork_link,
-            'map' => $request->map
+            'map' => $request->map,
+            'status' => $request->status
       
            ]);
            return ApiResponse('About us created successfully');
@@ -48,7 +58,8 @@ class Contact_usController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact_us  = contact_us::findOrFail($id);
+        return ApiResponse('success',$contact_us);
     }
 
     /**
@@ -60,15 +71,13 @@ class Contact_usController extends Controller
      */
     public function update(ContactRequest $request, $id)
     {
-        $contact_us  = contact_us::find($id);
-        if(!$contact_us){
-            return ApiResponse('contact us not found','',404);
-        }
+        $contact_us  = contact_us::findOrFail($id);
         $contact_us->update([
             'phone'=>$request->phone,
             'email'=>$request->email,
             'upwork_link'=>$request->upwork_link,
-            'map' => $request->map
+            'map' => $request->map,
+            'status' => $request->status,
          ]);
          return ApiResponse('About us updated successfully');
     }
@@ -81,11 +90,24 @@ class Contact_usController extends Controller
      */
     public function destroy($id)
     {
-        $contact_us =contact_us::find($id);
-        if(!$contact_us){
-           return ApiResponse('Contact us not found','',404);
-        }
+        $contact_us =contact_us::findOrFail($id);
         $contact_us->delete();
        return  ApiResponse('Contact us deleted successfully');
-     }
+    }
+    public function active($id)
+    {   
+        $countact_us = contact_us::findOrFail($id);
+        if($countact_us->status == 1){
+            $countact_us->update([
+                'status' => 0
+            ]);
+            return ApiResponse('Countact us unactivated successfully');
+        }else{
+            $countact_us->update([
+                'status' => 1
+            ]);
+            return ApiResponse('Countact us activated successfully');
+        }
+    
+    }
     }

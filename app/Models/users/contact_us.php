@@ -14,6 +14,7 @@ class contact_us extends Model
     'email',
     'upwork_link',
     'map',
+    'status',
     ];
     public $timestemp=true;
 }

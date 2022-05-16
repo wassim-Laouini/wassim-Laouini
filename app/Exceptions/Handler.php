@@ -2,8 +2,12 @@
 
 namespace App\Exceptions;
 
+use Error;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Support\Arr;
+use Illuminate\Http\Response;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Handler extends ExceptionHandler
 {
@@ -41,6 +45,17 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof ModelNotFoundException) {
+            $replacement = [
+                'id' => collect($e->getIds())->first(),
+            ];
+            return ApiResponse('Not found','',404);
+        }
+
+        return parent::render($request, $e);
+    }
     public function register()
     {
         $this->reportable(function (Throwable $e) {

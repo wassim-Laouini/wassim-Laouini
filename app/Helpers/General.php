@@ -1,5 +1,7 @@
 <?php
 
+
+
 if(!function_exists('ApiResponse')){
     function ApiResponse($msg,$data=null,$status=200){
         return response()->json([
@@ -9,3 +11,4 @@ if(!function_exists('ApiResponse')){
         ],$status);
     }
 }
+

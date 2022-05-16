@@ -17,21 +17,27 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $permissions =[
-            'create aboutus',
-            'edit aboutus',
-            'delete aboutus',
-            'show aboutus',
-            'update aboutus',
-            'create coutactus',
-            'edit coutactus',
-            'delete coutactus',
-            'show coutactus',
+            'create_about_us',
+            'active_about_us',
+            'delete_about_us',
+            'update_about_us',
+            'show_about_us',
+            'create_coutact_us',
+            'update_coutact_us',
+            'delete_coutact_us',
+            'show_coutact_us',
+            'active_coutact_us',
+            'create_admin',
+            'show_admin',
+            'update_admin',
+            'delete_admin',
+            'active_admin',
 
         ];
         
       foreach ($permissions as $permission) {
-        Permission::create(['name' => 'create']);
+        Permission::create(['name' => $permission]);
       }
-        $role->givePermissionTo($permission);
+
     }
 }
