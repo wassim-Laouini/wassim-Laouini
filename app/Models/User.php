@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Models\users;
+namespace App\Models;
 
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Spatie\Permission\Traits\HasRoles;
 
 
 class User extends Authenticatable implements JWTSubject
 {
-    
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +26,8 @@ class User extends Authenticatable implements JWTSubject
         'country',
         'status',
         'gender',
+        'role',
+        'updated_at',
         
     ];
    
@@ -38,7 +41,7 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'remember_token',
         'created_at',
-        'updated_at',
+
     ];
     public function getJWTIdentifier()
     {
@@ -54,6 +57,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+    protected $casts = [
+        'role' => 'array',
+    ];
 
 
    

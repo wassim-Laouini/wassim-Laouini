@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\admins;
 
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admins\LoginRequest;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,17 +15,28 @@ class AuthController extends Controller
          'password' => $request->password,   
      ];
      if($request->remember_token == 1){
-        if(!$token = JWTAuth::attempt($credentials, ['exp' => Carbon::now()->addDays(7)->timestamp])){
-        
-
-     }else{
-        $token = JWTAuth::attempt($credentials);
+        if(!$token = Auth::setTTL(10080)->attempt($credentials)){
+        return ApiResponse('Email or password is incorrect','',401);
+        }
+        return $this->respondWithToken($token);
+    }else{
+        if (!$token = Auth::attempt($credentials)) {
+            return ApiResponse('Email or password is incorrect','',401);
+        }
+        return $this->respondWithToken($token);
      }
-     
+     }
 
 
+     protected function respondWithToken($token)
+     {
+         return response()->json([
+             'access_token' => $token,
+             'token_type' => 'bearer',
+             'expires_in' => auth()->factory()->getTTL()
+         ]);
+     }
 
     
-     }
-    }
+    
 }

@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('phone')->unique();
             $table->string('email')->unique();
-            $table->string('upwork_link');
-            $table->string('map');
-          
+            $table->tinyText('upwork_link');
+            $table->string('map')->nullable();
             $table->timestamps();
             
         });

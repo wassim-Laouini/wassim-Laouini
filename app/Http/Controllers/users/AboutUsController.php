@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\admins;
+namespace App\Http\Controllers\users;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\admins\AboutusRequest;
-use App\Models\admins\AboutUs;
+use App\Http\Requests\users\AboutusRequest;
+use App\Models\users\AboutUs;
 use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
@@ -16,7 +16,7 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-      $aboutus =   AboutUs::active()->first();
+      $aboutus =   AboutUs::active()->get();
      return ApiResponse('about us data',$aboutus,200);
     }
 
@@ -51,9 +51,11 @@ class AboutUsController extends Controller
      */
     public function update(AboutusRequest $request, $id)
     {
-        AboutUs::findOr($id, function () {
-            return ApiResponse('about us not found','',404);
-        })->update([
+       $aboutus = AboutUs::find($id);
+       if(!$aboutus){
+        return ApiResponse('About us in not found',null,404);
+       }
+        $aboutus->update([
             'title' => $request->title,
             'body' => $request->body,
             'status' => $request->status
@@ -68,10 +70,12 @@ class AboutUsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        AboutUs::findOr($id, function () {
-            return ApiResponse('about us not found','',404);
-        })->delete();
-        return ApiResponse('About us updated successfully');
+    {   
+        $aboutus = AboutUs::find($id);
+        if(!$aboutus){
+            return ApiResponse('About us in not found',null,404);
+           }
+        $aboutus->delete();
+        return ApiResponse('About us deleted successfully');
     }
 }

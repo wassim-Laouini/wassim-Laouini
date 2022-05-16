@@ -1,24 +1,25 @@
 <?php
 
-namespace App\Models\admins;
+namespace App\Models\users;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class admin extends Model
+class AboutUs extends Model
 {
     use HasFactory;
-    protected $table= "admins" ;
+    protected $table= "about_us" ;
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'status', 
+        'title',
+        'body',
+        'status',
+        
     ];
     protected $hidden = [
-        'password',
-        'remember_token',
         'created_at',
         'updated_at',
     ];
+    public function Scopeactive($q){
+        return $q->where('status',1);
+    }
 }
