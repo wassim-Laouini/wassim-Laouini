@@ -7,7 +7,6 @@ use App\Http\Controllers\users\Contact_usController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
