@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admins\AdminsController;
 use App\Http\Controllers\admins\AuthController;
+use App\Http\Controllers\admins\RoleController;
 use App\Http\Controllers\users\AboutUsController;
 use App\Http\Controllers\users\Contact_usController;
 use Illuminate\Http\Request;
@@ -33,5 +34,6 @@ Route::middleware(['AdminAuth'])->group(function () {
    Route::apiResource('/admin',AdminsController::class);
    Route::get('/admin-status/{id}',[AdminsController::class,'active']);
    //create role
+   Route::apiResource('/role',RoleController::class);
 });
 //------------------admin dashbord-------------------

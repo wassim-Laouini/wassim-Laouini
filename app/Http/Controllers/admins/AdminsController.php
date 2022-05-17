@@ -19,7 +19,7 @@ class AdminsController extends Controller
         $this->middleware(['userpermission:active_admin'])->only('active');
         $this->middleware(['userpermission:show_admin'])->only('show','index');
         $this->middleware(['userpermission:delete_admin'])->only('destroy');
-        $this->middleware(['userpermission:update_admin'])->only('show','index');
+        $this->middleware(['userpermission:update_admin'])->only('update');
     }
     /**
      * Display a listing of the resource.
