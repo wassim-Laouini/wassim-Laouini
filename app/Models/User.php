@@ -60,6 +60,9 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'role' => 'array',
     ];
+    public function scopeAdmin($q){
+        return $q->role('admin');
+    }
 
 
    

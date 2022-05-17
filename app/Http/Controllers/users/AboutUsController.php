@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['userpermission:show_about_us'])->only('index','show');
+        $this->middleware(['userpermission:create_about_us'])->only('store');
+        $this->middleware(['userpermission:update_about_us'])->only('update');
+        $this->middleware(['userpermission:delete_about_us'])->only('destroy');
+        $this->middleware(['userpermission:active_about_us'])->only('active');
+
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,7 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-      $aboutus =   AboutUs::active()->get();
+      $aboutus =   AboutUs::all();
      return ApiResponse('about us data',$aboutus,200);
     }
 
@@ -36,10 +46,12 @@ class AboutUsController extends Controller
         return ApiResponse('About us created successfully');
     }
 
-    /*
+    
     public function show($id)
     {
-        //
+        $aboutus =AboutUs::findOrFail($id);
+       
+        return ApiResponse($aboutus);
     }
 
     /**
@@ -51,10 +63,7 @@ class AboutUsController extends Controller
      */
     public function update(AboutusRequest $request, $id)
     {
-       $aboutus = AboutUs::find($id);
-       if(!$aboutus){
-        return ApiResponse('About us in not found',null,404);
-       }
+       $aboutus = AboutUs::findOrFail($id);
         $aboutus->update([
             'title' => $request->title,
             'body' => $request->body,
@@ -71,11 +80,24 @@ class AboutUsController extends Controller
      */
     public function destroy($id)
     {   
-        $aboutus = AboutUs::find($id);
-        if(!$aboutus){
-            return ApiResponse('About us in not found',null,404);
-           }
+        $aboutus = AboutUs::findOrFail($id);
         $aboutus->delete();
         return ApiResponse('About us deleted successfully');
+    }
+    public function active($id)
+    {   
+        $aboutus = AboutUs::findOrFail($id);
+        if($aboutus->status == 1){
+            $aboutus->update([
+                'status' => 0
+            ]);
+            return ApiResponse('About us unactivated successfully');
+        }else{
+            $aboutus->update([
+                'status' => 1
+            ]);
+            return ApiResponse('About us activated successfully');
+        }
+    
     }
 }

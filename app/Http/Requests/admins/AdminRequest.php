@@ -27,6 +27,9 @@ class AdminRequest extends FormRequest
             'name' => 'required|string|max:24|min:4',
             'email' => 'required|email|max:100|min:10|unique:users,email,'.$this->id,
             'password' => 'required|string|max:50|min:6|confirmed',
+            'age' => 'numeric|max:100|min:1|',
+            'status' => 'required|numeric|between:0,1',
+            'gender' => 'string|max:20|min:3'
         ];
     }
 }

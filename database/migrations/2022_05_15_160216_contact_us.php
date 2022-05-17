@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->tinyText('upwork_link');
             $table->string('map')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
             
         });

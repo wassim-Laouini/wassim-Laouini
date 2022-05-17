@@ -24,10 +24,11 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'required|max:9999999999999999|min:999999|numeric|unique:contact_us,phone,'.$this->id,
-            'email' => 'required|max:150|min:6|email|unique:contact_us,email,'.$this->id,
-            'upwork_link' => 'string|required|max:10000|min:30',
-            'map' => 'nullable'
+            'phone' => 'required|max:200|min:10|string',
+            'email' => 'required|max:10000|min:10|string',
+            'upwork_link' => 'numeric|required|between:0,1',
+            'status' => 'numeric|required|between:0,1'
+            
         ];
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Illuminate\Contracts\Validation\ValidatesWhenResolved;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Validation\ValidatesWhenResolvedTrait;
@@ -135,9 +136,9 @@ class FormRequest extends Request implements ValidatesWhenResolved
      */
     protected function failedValidation(Validator $validator)
     {
-        throw (new ValidationException($validator))
-                    ->errorBag($this->errorBag)
-                    ->redirectTo($this->getRedirectUrl());
+         $errors = $validator->errors();
+         $response = ApiResponse('error',$errors,422);
+         throw new HttpResponseException($response);
     }
 
     /**

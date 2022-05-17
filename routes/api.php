@@ -25,12 +25,13 @@ Route::post('/login',[AuthController::class,'login']);
 Route::middleware(['AdminAuth'])->group(function () {
    //about us
    Route::apiResource('/about-us',AboutUsController::class);
+   Route::get("/about-us/status",[AboutUsController::class,'active']);
    // contact us 
    Route::apiResource('/contact-us',Contact_usController::class);
+   Route::get("/contact-us/status",[Contact_usController::class,'active']);
    //create admin
-   Route::post('/create-admin',[AdminsController::class,'create']);
-   Route::get('/firas',function(){
-    return 'yes you are login';
-   });
+   Route::apiResource('/admin',AdminsController::class);
+   Route::get('/admin-status/{id}',[AdminsController::class,'active']);
+   //create role
 });
 //------------------admin dashbord-------------------
