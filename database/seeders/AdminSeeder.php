@@ -29,9 +29,11 @@ class AdminSeeder extends Seeder
         $role =Role::create([
             'name' => 'owner',
           ]);
+
           $permissions = Permission::pluck('id','id')->all();
           $role->syncPermissions($permissions);
         $admin->assignRole([$role->id]);
+
 
     }
 }

@@ -32,6 +32,10 @@ class PermissionSeeder extends Seeder
             'update_admin',
             'delete_admin',
             'active_admin',
+            'create_role',
+            'show_role',
+            'update_role',
+            'delete_role',
 
         ];
         
