@@ -1,6 +1,7 @@
 import React from "react";
 import "./aboutUsStyle.css";
-function About() {
+function About({ data }) {
+    console.log(data);
     return <div className="center">About</div>;
 }
 
