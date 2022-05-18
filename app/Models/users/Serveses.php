@@ -2,12 +2,12 @@
 
 namespace App\Models\users;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
 
-class contact_us extends Model
+class Serveses extends Model
 {
-    use HasFactory;
+    
     protected $table="contact_us";
     protected $fillable=[
     'phone',
@@ -16,5 +16,4 @@ class contact_us extends Model
     'map',
     'status',
     ];
-    
 }
