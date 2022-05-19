@@ -27,11 +27,20 @@ const RoutesComponent = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home />} />
+                {/* <Route path="/" element={<Home />} /> */}
                 <Route path="/AboutUs" element={<AboutUs />} />
                 <Route path="/NotFoundPage" element={<NotFoundView />} />
                 <Route path="*" element={<Navigate to="/NotFoundPage" />} />
                 //* authenticated routes will display here
+                <Route
+                    path="/"
+                    //! for the moment all can access the admin panel till the token is handled in the backend then we can use it only after log in
+                    element={
+                        <MainLayout>
+                            <Home />
+                        </MainLayout>
+                    }
+                />
                 <Route
                     path="/adminPanel/login"
                     //! for the moment all can access the admin panel till the token is handled in the backend then we can use it only after log in
