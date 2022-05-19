@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "commonFont";
+    src: local("commonFont"), url("./fonts/font.ttf") format("truetype");
+    font-weight: normal;
+  }
