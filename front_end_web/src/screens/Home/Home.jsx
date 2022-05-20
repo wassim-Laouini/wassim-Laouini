@@ -31,6 +31,8 @@ function Home() {
 
         <div className="home-area">
             <div className="home-content">
+
+
                 <h1>
                     Ready <span>For The Future.</span>
                 </h1>
