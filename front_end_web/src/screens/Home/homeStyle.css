@@ -226,7 +226,7 @@ line-height: 25px;
  color: #CEAA6D;
 margin-top: 10px;
 }
-/* .arrow{
+.arrow{
 width: 70px;
 color: #fff;
 background-color: transparent;
@@ -239,5 +239,6 @@ transition: all .5s;
 .arrow:hover{
 transform: translateY(-5px);
 
-} */
+}
+
 /* End of services section */

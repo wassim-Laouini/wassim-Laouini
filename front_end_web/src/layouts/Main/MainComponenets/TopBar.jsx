@@ -3,7 +3,7 @@ import "./componentsStyle.css";
 
 function TopBar() {
     return(
-<div  >  </div>
+<div  > </div>
 
 );
 }

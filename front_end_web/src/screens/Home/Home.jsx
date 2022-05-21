@@ -1,6 +1,7 @@
 import React from "react"; // { useState, useEffect }
 import { useNavigate } from "react-router-dom";
 import "./homeStyle.css";
+import SecondSectionHome from "../../components/Second-section-home"
 // import API from "../../axios/axiosApi";
 // import AboutUs from "../AboutUs";
 // import image from "../../images/Asset_26.png";
@@ -83,7 +84,6 @@ function Home() {
 {/***** end of home section 1*  *****/}
 
 
-
 {/***** start of services section  *****/}
 <div className="services">
 <h1 className="services-heading" > Our Services </h1>
@@ -152,9 +152,13 @@ function Home() {
 </div>
 {/***** End of services section  *****/}
 
-{/* <a href="ss"> <img className="arrow" src={require("../../images/up-arrow.png")} alt="" /> </a> */}
+<a href="ss"> <img className="arrow" src={require("../../images/up-arrow.png")} alt="" /> </a>
+
+<SecondSectionHome/>
+
 
       </div>
+
     );
 }
 
