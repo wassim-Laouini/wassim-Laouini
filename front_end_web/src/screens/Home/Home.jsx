@@ -31,7 +31,7 @@ function Home() {
 //* home section & services section
 <div className="home-container" >
 {/***** start of home section 1   *****/}
-
+ 
        <div className="home-section1">
 
                 <div className="home-content">
