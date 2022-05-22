@@ -1,5 +1,15 @@
 @font-face {
     font-family: "commonFont";
-    src: local("commonFont"), url("./fonts/font.ttf") format("truetype");
+    src: local("commonFont"), url("./fonts/CenturyGothic.ttf") format("truetype");
     font-weight: normal;
   }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: sans-serif;
+}

@@ -1,1 +1,116 @@
+.TopBar_container{
+    background-color: #FFFFFF;
+    height: 60px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between; 
+    align-items: center;
+    overflow: hidden;
+    box-shadow: #050B11;
+    box-shadow: 4px 0px 20px -4px rgba(0, 0, 0, 0.17);
+    padding:0px 10px 0px 10px;
+    
+}
+.TopBar_Lefticon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 150px;
+}
+.topPageNone{
+    display: none;
+}
 
+.TopBar_container  .p{
+    color: #050B11;
+    text-align: center;
+    padding:10px 15px 10px 15px;
+    text-decoration: none;
+    font-weight:bold;
+    border-radius: 12px;
+    width: 130px;
+    height: 39.56px;
+    float: right;
+    font-family: CommenFont;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.TopBar_container .p:hover {
+    background-color: #CBA76C;
+    color: black;
+    cursor: pointer;
+  }
+.topPage .p:hover {
+    background-color: #CBA76C;
+    color: black;
+    cursor: pointer;
+  }
+  .active{
+    background-color: #CBA76C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  }
+
+.TopBar_Lefticon_img{
+    width:37px;
+    height: 43px;
+ }
+
+
+.footer_container{
+  width: 100%;
+  margin-top: 120px;
+  background-color: #050B11;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.footer_icons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  float: right;
+}
+.footer_icons img:first-child{
+  width:85px ;
+  height: 85px;
+}
+.footer_rightSide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  float: left;
+}
+.footer_rightSide p {
+  color:#FFFFFF;
+  font-family: commonFont;
+   margin-top: 30px;
+}
+.footer_logo{
+  float: left;
+  width: 100%;
+}
+ /* !not touched yet till mobile design is ready */
+  @media screen and (max-width: 600px) {
+    .TopBar_container .p:not(:first-child) {display: none;}
+    .TopBar_container .p.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .TopBar_container.responsive {position: relative;}
+    .TopBar_container.responsive .p {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }

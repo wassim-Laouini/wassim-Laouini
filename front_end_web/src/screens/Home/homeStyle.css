@@ -1,17 +1,6 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style-type: none;
-    outline: none;
-    scroll-behavior: smooth;
-    font-family: sans-serif;
-}
 .home-container{
 width: 100%;
 height: 100%;
-
 }
 
 /* start of home-section1*/
@@ -23,8 +12,9 @@ background-image: url(../../images/Background.png);
 background-size: cover;
 position: relative;
 overflow: hidden;
-
 }
+
+
 
 /* home-section1 text*/
 .home-content{
@@ -86,15 +76,6 @@ margin-left: 15px;
 cursor: pointer;
 }
 /*  End of   About Us & contact Us btn  */
-
-
-/* another type of font handling */
-/* .pTag{
-    font-family: "commonFont";
-    color: white;
-    margin-left: "20px";
-} */
-
 
 /* wave-shape */
 .wave-shape {

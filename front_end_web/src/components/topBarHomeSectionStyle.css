@@ -1,0 +1,49 @@
+/* handling topBar section at home page */
+
+.home_topBarSection_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:  50px;
+    position: fixed;
+    width: 100%;
+    transition: top 0.3s;
+}
+.home_topBarSection{
+    display: flex;
+    float: right;
+}
+.home_topBarSection{
+margin-right:150px;
+}
+.pTag{
+color:#ffffff;
+text-align: center;
+padding:10px 15px 10px 15px;
+text-decoration: none;
+font-weight:bold;
+border-radius: 12px;
+width: 130px;
+height: 39.56px;
+float: right;
+font-family: CommenFont;
+cursor: pointer;
+}
+
+.activeTopBarSection{
+    color:#C8A263;
+}
+.pTag:hover {
+    color: #C8A263;
+    cursor: pointer;
+  }
+
+.TopBar_homeLefticon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 150px;
+    width: 40px;
+    height:40px;
+}

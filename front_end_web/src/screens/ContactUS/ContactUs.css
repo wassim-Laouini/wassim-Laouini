@@ -1,0 +1,109 @@
+.contactUs_container{
+    width: 100%;
+    height: 100%;
+}
+.contactUs_1stSection{
+    height: 500px;
+    background-image: url(../../images/contact-UsBg.png);
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+.contactUsh1{
+    text-align: center;
+    padding: 100px 0px 100px 0px;
+    font-family: commonFont;
+}
+
+.contactUs_secondSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #F3F3F3;
+}
+.contactUs_leftSide{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 6%;
+}
+.contactUs_rightSide{
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px -3px 1px #432C11;
+    padding: 6%;
+}
+.contactUs_rightSide_container{
+    width: 50%;
+}
+.contactUs_btn{
+    color:#FFFFFF;
+    background-color: #C8A263;
+    font-family: commonFont;
+    height: 50px;
+    width: 250px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+.contactUs_btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.contactUs_btns:hover{
+cursor: pointer;
+}
+.contactUs_p{
+    color: #969696;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: commonFont;
+}
+h2,h3,h4{
+    font-family: commonFont;
+    margin-bottom: 20px;
+    text-align: left;
+}
+h2{
+    color: #C8A263;
+}
+.contactUs_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contactUs_input{
+    border-radius: 5px;
+    border: 2px solid #F3F3F3;
+    margin-bottom:10px ;
+    background-color: #F3F3F3;
+    resize:none;
+    color: #969696;
+    text-align: initial;
+}
+.submitButton_container{
+    text-align: center;
+}
+.contactUs_submitBtn{
+    align-self: center;
+    width: 120px;
+    height: 40px;
+    border-radius: 7px;
+    border: none;
+    background-color: #FFFFFF;
+    box-shadow: -3px 1px 0px 0px #C8A263;
+    font-family: commonFont;
+    font-weight: bold;
+}
+.contactUs_submitBtn :hover{
+cursor: pointer;
+}
