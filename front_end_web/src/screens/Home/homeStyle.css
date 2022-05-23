@@ -143,7 +143,7 @@ align-items: center;
 
 .services-wrapper{
 width:75%;
-height: 750px;
+height: 100%;
 display: flex;
 flex-wrap: wrap;
 margin-left: auto;
@@ -152,8 +152,10 @@ margin-right: auto;
 
 .services-component{
 width: 349.92px;
-height: 339.77px;;
+height: 339.77px;
 border-radius: 8px;
+margin-top: 5px;
+margin-bottom: 20px;
 margin-left: auto;
 margin-right: auto;
 padding: 30px ;

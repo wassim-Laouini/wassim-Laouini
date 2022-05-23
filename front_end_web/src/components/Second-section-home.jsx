@@ -25,7 +25,7 @@ function SecondSectionHome() {
         <div className="skills-item"> <h6> IT Consulting <em>90%</em>  </h6>   </div>
         <div className="skills-progress">
 
-        <div style={{width:"90%"}} className="progress"></div>
+        <div style={{width:"90%"}}  className="progress"></div>
           </div>
 
          </div>
@@ -97,6 +97,25 @@ function SecondSectionHome() {
 
 
 </div>
+
+{  /***  let's get started img  */}
+<div className="get-started">
+<div className='container-GS' >
+
+ <img className='bbh-logo' src={require("../images/bbh3d.png")} alt="" />
+    <div className="text">
+    <h6>  want to work with us   </h6>
+    <h2> Digitally transform and grow your business!  </h2>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui veniam laudantium
+       ipsam officia obcaecati temporibus officiis eligendi
+     inventore soluta ullam tempore provident quis, similique
+       eaque in quae ducimus minus quos!</p>
+       <a href="start"> Let's get Started </a>
+    </div>
+</div>
+
+</div>
+
 
     </div>
   )

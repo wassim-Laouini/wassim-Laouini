@@ -3,13 +3,13 @@
     height: 60px;
     display: flex;
     width: 100%;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     overflow: hidden;
     box-shadow: #050B11;
     box-shadow: 4px 0px 20px -4px rgba(0, 0, 0, 0.17);
     padding:0px 10px 0px 10px;
-    
+
 }
 .TopBar_Lefticon{
     display: flex;
@@ -62,7 +62,7 @@
 
 .footer_container{
   width: 100%;
-  margin-top: 120px;
+  margin-top: 200px;
   background-color: #050B11;
   height: 400px;
   display: flex;
@@ -105,7 +105,7 @@
       display: block;
     }
   }
-  
+
   @media screen and (max-width: 600px) {
     .TopBar_container.responsive {position: relative;}
     .TopBar_container.responsive .p {
