@@ -82,6 +82,7 @@ color: #01080E;
     line-height: 1.8;
     margin-bottom:20px;
     letter-spacing: 0.3px;
+    word-wrap: break-word;
     color: #969696;
 }
 .about-text .skills-container {
@@ -209,6 +210,7 @@ margin-left:60px;
     line-height: 1.8;
     margin-bottom: 20px;
     letter-spacing: 0.3px;
+    word-wrap: break-word;
     color: #969696;
 }
 .features-list{
