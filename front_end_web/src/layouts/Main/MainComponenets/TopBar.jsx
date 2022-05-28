@@ -12,7 +12,7 @@ function TopBar() {
     const [activeContactUs, setActiveContactUs] = useState("");
     const [stickyClass, setStickyClass] = useState("");
     const [leftNavLogo, setLeftNavLogo] = useState(Whitelogo);
-    const [rightNavTabsCss, setRightNavTabsCss] = useState("p");
+    const [rightNavTabsCss, setRightNavTabsCss] = useState("pBeforeTopPic");
     const stickNavbar = () => {
         if (window !== undefined) {
             let windowHeight = window.scrollY;
