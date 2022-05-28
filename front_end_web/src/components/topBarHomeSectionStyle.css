@@ -13,10 +13,9 @@
 .home_topBarSection{
     display: flex;
     float: right;
+    margin-right:150px;
 }
-.home_topBarSection{
-margin-right:150px;
-}
+
 .pTag{
 color:#ffffff;
 text-align: center;

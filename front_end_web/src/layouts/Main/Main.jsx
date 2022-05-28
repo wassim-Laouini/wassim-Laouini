@@ -8,14 +8,14 @@ const console = () => {
     console.log("console");
 };
 const Main = (props) => {
-    const { children, scroll, setScroll } = props;
+    const { children } = props;
 
     return (
         //! here we wrap our pages if necessary so that we don't code same
         //! stuff over and over (topBar/footer/sideBar) all are wrapping our
         //! website and also they are reusable components
         <div className="main">
-            <TopBar scroll={scroll} setScroll={setScroll} />
+            <TopBar />
             {/* //* only use TopBar if imported */}
             {/* <Sidebar /> */}
             {/* //* only use SideBar if imported */}

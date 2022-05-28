@@ -1,20 +1,40 @@
 import React, { useEffect, useState } from "react";
 import "./componentsStyle.css";
 import { useNavigate } from "react-router-dom";
-
-function TopBar({ scroll, setScroll }) {
+import Whitelogo from "../../../images/Asset_27.png";
+import blackLogo from "../../../images/Asset_26.png";
+function TopBar() {
     let navigate = useNavigate();
     const [formValues, setFormValues] = useState("");
     const [activehome, setActivehome] = useState("active");
     const [activeServices, setActiveServices] = useState("");
     const [activeAboutUs, setActiveAboutUs] = useState("");
     const [activeContactUs, setActiveContactUs] = useState("");
-
+    const [stickyClass, setStickyClass] = useState("");
+    const [leftNavLogo, setLeftNavLogo] = useState(Whitelogo);
+    const [rightNavTabsCss, setRightNavTabsCss] = useState("p");
+    const stickNavbar = () => {
+        if (window !== undefined) {
+            let windowHeight = window.scrollY;
+            if (windowHeight < 60) {
+                setStickyClass("");
+            }
+            if (windowHeight < 450 && windowHeight >= 60) {
+                setStickyClass("sticky-nav ");
+                setLeftNavLogo(Whitelogo);
+                setRightNavTabsCss("pBeforeTopPic");
+            } else if (windowHeight > 450) {
+                setStickyClass(" sticky-nav sticky-nav_afterPic");
+                setLeftNavLogo(blackLogo);
+                setRightNavTabsCss("p");
+            }
+        }
+    };
     useEffect(() => {
-        window.addEventListener("scroll", () => {
-            setScroll(window.scrollY > 350);
-        });
-    }, []);
+        window.addEventListener("scroll", stickNavbar);
+        return () => window.removeEventListener("scroll", stickNavbar);
+    }, [stickyClass, stickNavbar]);
+
     const handleRoute = (val) => {
         navigate(val);
     };
@@ -44,41 +64,37 @@ function TopBar({ scroll, setScroll }) {
         handleRoute(val);
     };
     return (
-        <nav className={scroll ? "TopBar_container sticky" : "topPageNone"}>
+        <div className={`TopBar_container ${stickyClass}`}>
             <div className="TopBar_Lefticon">
-                <img
-                    className="TopBar_Lefticon_img"
-                    src={require("../../../images/Asset_26.png")}
-                    alt=""
-                />
+                <img className="TopBar_Lefticon_img" src={leftNavLogo} alt="" />
             </div>
-            <div>
+            <div className="topBar_right">
                 <p
-                    className={`TopBar_contactUs p ${activeContactUs}`}
+                    className={`${rightNavTabsCss} ${activeContactUs}`}
                     onClick={(e) => handleSelectedNav(e, "/ContactUs")}
                 >
-                    Contact Us
+                    Contact us
                 </p>
                 <p
-                    className={`TopBar_aboutUS p ${activeAboutUs}`}
+                    className={` ${rightNavTabsCss} ${activeAboutUs}`}
                     onClick={(e) => handleSelectedNav(e, "/AboutUs")}
                 >
-                    About Us
+                    About us
                 </p>
                 <p
-                    className={`TopBar_ourServices p ${activeServices}`}
+                    className={` ${rightNavTabsCss} ${activeServices}`}
                     onClick={(e) => handleSelectedNav(e, "/Services")}
                 >
-                    Our Services
+                    Our services
                 </p>
                 <p
-                    className={`TopBar_home p ${activehome}`}
+                    className={`${rightNavTabsCss} ${activehome}`}
                     onClick={(e) => handleSelectedNav(e, "/")}
                 >
                     Home
                 </p>
             </div>
-        </nav>
+        </div>
     );
 }
 
