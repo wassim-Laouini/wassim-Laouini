@@ -102,7 +102,7 @@ function SecondSectionHome() {
 <div className="get-started">
 <div className='container-GS' >
 
- <img className='bbh-logo' src={require("../images/bbh3d.png")} alt="" />
+ <img className='bbh-logo' src={require("../images/BBH black and yellow.png")} alt="" />
     <div className="text">
     <h6>  want to work with us   </h6>
     <h2> Digitally transform and grow your business!  </h2>
