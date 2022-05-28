@@ -19,11 +19,11 @@ function TopBar() {
             if (windowHeight < 60) {
                 setStickyClass("");
             }
-            if (windowHeight < 450 && windowHeight >= 60) {
+            if (windowHeight < 400 && windowHeight >= 60) {
                 setStickyClass("sticky-nav ");
                 setLeftNavLogo(Whitelogo);
                 setRightNavTabsCss("pBeforeTopPic");
-            } else if (windowHeight > 450) {
+            } else if (windowHeight > 400) {
                 setStickyClass(" sticky-nav sticky-nav_afterPic");
                 setLeftNavLogo(blackLogo);
                 setRightNavTabsCss("p");
