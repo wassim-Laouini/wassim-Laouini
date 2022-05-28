@@ -11,11 +11,9 @@ margin: top 130px;
 .section2-first-img{
  height: 500px;
  width: 100%;
-
 background-image: url(../images/Background.png);
 background-attachment: fixed;
-background-size: cover;
-}
+background-size: cover;}
 .section2-first-img h2{
 text-align: center;
 padding-top: 250px;
