@@ -3,13 +3,26 @@ import { useNavigate } from "react-router-dom";
 import "./homeStyle.css";
 import SecondSectionHome from "../../components/Second-section-home";
 // import API from "../../axios/axiosApi";
-// import AboutUs from "../AboutUs";
-// import image from "../../images/Asset_26.png";
-import TopBarSection from "../../components/TopBarSection";
+import first from "../../images/web dev.png";
+import second from "../../images/music.png";
+import third from "../../images/scraping.png";
+import fourth from "../../images/security.png";
+import fifth from "../../images/mobile.png";
+import sixth from "../../images/disgne icon.png";
+
 //* only use API when necessary to get/send data from/to server(backend)
 //* API usage : API.get/post("getUserData") then handle it (example)
-
-function Home({ scroll }) {
+const defaultText =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur expedita reprehenderit laudantium repellendus qui ab tenetur, aliquam facere veritatis autem adipisci maxime ullam iste magnam eaque esse cupiditate obcaecati repellat?";
+const services = [
+    { title: "Web Development", text: defaultText, logo: first },
+    { title: "IT Solution", text: defaultText, logo: second },
+    { title: "IT Solution", text: defaultText, logo: third },
+    { title: "IT Solution", text: defaultText, logo: fourth },
+    { title: "IT Solution", text: defaultText, logo: fifth },
+    { title: "Design", text: defaultText, logo: sixth },
+];
+function Home() {
     let navigate = useNavigate();
     // const [formValues,setFormValues]=useState("")
     const handleRoute = (val) => {
@@ -34,7 +47,7 @@ function Home({ scroll }) {
             {/***** start of home section 1   *****/}
 
             <div className="home-section1">
-                <TopBarSection scroll={scroll} />
+                {/* <TopBarSection scroll={scroll} /> */}
                 <div className="home-content">
                     <h1>
                         {" "}
@@ -90,150 +103,24 @@ function Home({ scroll }) {
             <div className="services">
                 <h1 className="services-heading"> Our Services </h1>
                 <div className="services-wrapper">
-                    <div className="services-component">
-                        <div className="services-icon">
-                            {" "}
-                            <img
-                                style={{ width: "40px" }}
-                                src={require("../../images/web dev.png")}
-                                alt=""
-                            />{" "}
-                        </div>
-                        <div className="services-text">
-                            {" "}
-                            <h3> Web Development</h3>
-                            <p>
+                    {services.map((elem, index) => (
+                        <div key={index} className="services-component">
+                            <div className="services-icon">
                                 {" "}
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Pariatur expedita
-                                reprehenderit laudantium repellendus qui ab
-                                tenetur, aliquam facere veritatis autem adipisci
-                                maxime ullam iste magnam eaque esse cupiditate
-                                obcaecati repellat?{" "}
-                            </p>
-                        </div>
-                        <a href="link"> Read More </a>
-                    </div>
-                    <div className="services-component">
-                        <div className="services-icon">
-                            {" "}
-                            <img
-                                style={{ width: "40px" }}
-                                src={require("../../images/music.png")}
-                                alt=""
-                            />{" "}
-                        </div>
-                        <div className="services-text">
-                            {" "}
-                            <h3> IT Solution</h3>
-                            <p>
+                                <img
+                                    style={{ width: "40px" }}
+                                    src={elem.logo}
+                                    alt=""
+                                />{" "}
+                            </div>
+                            <div className="services-text">
                                 {" "}
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Pariatur expedita
-                                reprehenderit laudantium repellendus qui ab
-                                tenetur, aliquam facere veritatis autem adipisci
-                                maxime ullam iste magnam eaque esse cupiditate
-                                obcaecati repellat?{" "}
-                            </p>
+                                <h3> {elem.title}</h3>
+                                <p>{elem.text}</p>
+                            </div>
+                            <a href="link"> Read More </a>
                         </div>
-                        <a href="link"> Read More </a>
-                    </div>
-                    <div className="services-component">
-                        <div className="services-icon">
-                            {" "}
-                            <img
-                                style={{ width: "40px" }}
-                                src={require("../../images/scraping.png")}
-                                alt=""
-                            />{" "}
-                        </div>
-                        <div className="services-text">
-                            {" "}
-                            <h3> IT Solution</h3>
-                            <p>
-                                {" "}
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Pariatur expedita
-                                reprehenderit laudantium repellendus qui ab
-                                tenetur, aliquam facere veritatis autem adipisci
-                                maxime ullam iste magnam eaque esse cupiditate
-                                obcaecati repellat?{" "}
-                            </p>
-                        </div>
-                        <a href="link"> Read More </a>
-                    </div>
-                    <div className="services-component">
-                        <div className="services-icon">
-                            {" "}
-                            <img
-                                style={{ width: "40px" }}
-                                src={require("../../images/security.png")}
-                                alt=""
-                            />{" "}
-                        </div>
-                        <div className="services-text">
-                            {" "}
-                            <h3> IT Solution</h3>
-                            <p>
-                                {" "}
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Pariatur expedita
-                                reprehenderit laudantium repellendus qui ab
-                                tenetur, aliquam facere veritatis autem adipisci
-                                maxime ullam iste magnam eaque esse cupiditate
-                                obcaecati repellat?{" "}
-                            </p>
-                        </div>
-                        <a href="link"> Read More </a>
-                    </div>
-                    <div className="services-component">
-                        <div className="services-icon">
-                            {" "}
-                            <img
-                                style={{ width: "40px" }}
-                                src={require("../../images/mobile.png")}
-                                alt=""
-                            />{" "}
-                        </div>
-                        <div className="services-text">
-                            {" "}
-                            <h3> IT Solution</h3>
-                            <p>
-                                {" "}
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Pariatur expedita
-                                reprehenderit laudantium repellendus qui ab
-                                tenetur, aliquam facere veritatis autem adipisci
-                                maxime ullam iste magnam eaque esse cupiditate
-                                obcaecati repellat?{" "}
-                            </p>
-                        </div>
-                        <a href="link"> Read More </a>
-                    </div>
-                    <div className="services-component">
-                        <div className="services-icon">
-                            {" "}
-                            <img
-                                style={{ width: "40px" }}
-                                src={require("../../images/disgne icon.png")}
-                                alt=""
-                            />{" "}
-                        </div>
-                        <div className="services-text">
-                            {" "}
-                            <h3> Design</h3>
-                            <p>
-                                {" "}
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Pariatur expedita
-                                reprehenderit laudantium repellendus qui ab
-                                tenetur, aliquam facere veritatis autem adipisci
-                                maxime ullam iste magnam eaque esse cupiditate
-                                obcaecati repellat?{" "}
-                            </p>
-                        </div>
-                        <a href="link"> Read More </a>
-                    </div>
+                    ))}
                 </div>
             </div>
             {/***** End of services section  *****/}

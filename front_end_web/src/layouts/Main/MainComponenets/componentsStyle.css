@@ -1,16 +1,32 @@
 .TopBar_container{
-    background-color: #FFFFFF;
-    height: 60px;
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    height: 60px;
+    position: absolute;
     overflow: hidden;
-    box-shadow: #050B11;
-    box-shadow: 4px 0px 20px -4px rgba(0, 0, 0, 0.17);
-    padding:0px 10px 0px 10px;
+    margin-top: 60px;
+    transition: top  1s;
+    z-index: 9999999999999999999999999999;
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+  }
+  .sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 0px;
+  }
+ .sticky-nav_afterPic{
+   background-color: #FFFFFF;
+   -webkit-transition: background-color 500ms linear;
+   -ms-transition: background-color 500ms linear;
+   transition: background-color 500ms linear;
+   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2)
+ }
 
-}
 .TopBar_Lefticon{
     display: flex;
     flex-direction: row;
@@ -20,18 +36,34 @@
 .topPageNone{
     display: none;
 }
-
-.TopBar_container  .p{
-    color: #050B11;
-    text-align: center;
-    padding:10px 15px 10px 15px;
-    text-decoration: none;
-    font-weight:bold;
-    border-radius: 12px;
-    width: 130px;
-    height: 39.56px;
-    float: right;
-    font-family: CommenFont;
+.topBar_right{
+  margin-right: 150px;
+ }
+  .p{
+  color:#050B11;
+  text-align: center;
+  padding:10px 15px 10px 15px;
+  text-decoration: none;
+  font-weight:bold;
+  border-radius: 12px;
+  width: 130px;
+  height: 39.56px;
+  float: right;
+  font-family: CommenFont;
+  cursor: pointer;
+}
+.pBeforeTopPic{
+  color:#FFFFFF;
+  text-align: center;
+  padding:10px 15px 10px 15px;
+  text-decoration: none;
+  font-weight:bold;
+  border-radius: 12px;
+  width: 130px;
+  height: 39.56px;
+  float: right;
+  font-family: CommenFont;
+  cursor: pointer;
 }
 .sticky {
   position: sticky;
@@ -40,18 +72,15 @@
   overflow: hidden;
 }
 .TopBar_container .p:hover {
-    background-color: #CBA76C;
-    color: black;
+    color:#C8A263;
     cursor: pointer;
   }
-.topPage .p:hover {
-    background-color: #CBA76C;
-    color: black;
-    cursor: pointer;
-  }
+.pBeforeTopPic:hover{
+  color:#C8A263;
+  cursor: pointer;
+}
   .active{
-    background-color: #CBA76C;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    color:#C8A263;
   }
 
 .TopBar_Lefticon_img{

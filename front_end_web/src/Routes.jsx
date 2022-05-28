@@ -13,7 +13,6 @@ import Services from "./screens/Services";
 //! componenets folder is for the components that are reusable from page to page
 
 const RoutesComponent = () => {
-    const [scroll, setScroll] = useState(false);
     let path = "/";
     const userData =
         localStorage.getItem("user_data_BBH") !== undefined
@@ -35,32 +34,32 @@ const RoutesComponent = () => {
                 <Route
                     path="/Services"
                     element={
-                        <MainLayout scroll={scroll} setScroll={setScroll}>
-                            <Services scroll={scroll} setScroll={setScroll} />
+                        <MainLayout>
+                            <Services />
                         </MainLayout>
                     }
                 />
                 <Route
                     path="/AboutUs"
                     element={
-                        <MainLayout scroll={scroll} setScroll={setScroll}>
-                            <AboutUs scroll={scroll} setScroll={setScroll} />
+                        <MainLayout>
+                            <AboutUs />
                         </MainLayout>
                     }
                 />
                 <Route
                     path="/"
                     element={
-                        <MainLayout scroll={scroll} setScroll={setScroll}>
-                            <Home scroll={scroll} setScroll={setScroll} />
+                        <MainLayout>
+                            <Home />
                         </MainLayout>
                     }
                 />
                 <Route
                     path="/ContactUs"
                     element={
-                        <MainLayout scroll={scroll} setScroll={setScroll}>
-                            <ContactUs scroll={scroll} setScroll={setScroll} />
+                        <MainLayout>
+                            <ContactUs />
                         </MainLayout>
                     }
                 />
