@@ -12,6 +12,17 @@ function ContactUs({ scroll, setScroll }) {
         <div className="contactUs_container">
             <div className="contactUs_1stSection">
                 <TopBarSection scroll={scroll} />
+ <div className="contactUs-title-container">
+<div className="page-title-content">
+<h2> Contact</h2>
+<ul>
+    <li id="home-li" > Home  </li>
+    <li  > Contact </li>
+
+</ul>
+</div>
+
+</div>
             </div>
             <div className="contactUsh1">
                 <h1>LET'S GET STARTED!</h1>
@@ -53,7 +64,7 @@ function ContactUs({ scroll, setScroll }) {
                     <div className="contactUs_rightSide">
                         <h2>CONTACT US DIRECTLY</h2>
                         <h3>
-                            Creaate account to hear more or schedule an
+                            Create account to hear more or schedule an
                             appointement.
                         </h3>
                         <form action="" className="contactUs_form">
