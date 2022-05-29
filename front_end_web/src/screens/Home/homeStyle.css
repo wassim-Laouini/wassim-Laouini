@@ -214,14 +214,13 @@ width: 70px;
 color: #fff;
 background-color: transparent;
 position: fixed;
-bottom: 100px;
+bottom: 10px;
 right: 50px;
 border-radius: 50%;
 transition: all .5s;
 }
 .arrow:hover{
 transform: translateY(-5px);
-
 }
 
 /* End of services section */

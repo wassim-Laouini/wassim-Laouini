@@ -124,7 +124,6 @@ function Home() {
                 </div>
             </div>
             {/***** End of services section  *****/}
-
             <a href="ss">
                 {" "}
                 <img
@@ -133,7 +132,6 @@ function Home() {
                     alt=""
                 />{" "}
             </a>
-
             <SecondSectionHome />
         </div>
     );

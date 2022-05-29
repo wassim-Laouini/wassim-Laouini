@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./ContactUs.css";
 import { useNavigate } from "react-router-dom";
-import TopBarSection from "../../components/TopBarSection";
-function ContactUs({ scroll, setScroll }) {
+function ContactUs() {
     let navigate = useNavigate();
     const [formValues, setFormValues] = useState("");
     const handleRoute = () => {
@@ -11,18 +10,15 @@ function ContactUs({ scroll, setScroll }) {
     return (
         <div className="contactUs_container">
             <div className="contactUs_1stSection">
-                <TopBarSection scroll={scroll} />
- <div className="contactUs-title-container">
-<div className="page-title-content">
-<h2> Contact</h2>
-<ul>
-    <li id="home-li" > Home  </li>
-    <li  > Contact </li>
-
-</ul>
-</div>
-
-</div>
+                <div className="contactUs-title-container">
+                    <div className="page-title-content">
+                        <h2> Contact</h2>
+                        <ul>
+                            <li id="home-li"> Home </li>
+                            <li> Contact </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div className="contactUsh1">
                 <h1>LET'S GET STARTED!</h1>
