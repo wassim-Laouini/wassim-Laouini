@@ -185,8 +185,9 @@ return [
         /*
          * Package Service Providers...
          */
-        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        Spatie\Permission\PermissionServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,//image
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,//jwt
+        Spatie\Permission\PermissionServiceProvider::class,//role and permission
 
 
         /*
@@ -212,7 +213,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 
 ];

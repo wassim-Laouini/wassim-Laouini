@@ -25,8 +25,8 @@ class AboutusRequest extends FormRequest
     {
         return [
             'title' => 'required|max:200|min:10|string',
-            'body' => 'required|max:10000|min:10|string',
-            'status' => 'numeric|required|between:0,1'
+            'description' => 'required|max:10000|min:10|string',
+            'image' => 'sometimes|required',
         ];
     }
 }

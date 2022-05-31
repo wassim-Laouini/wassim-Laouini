@@ -38,10 +38,12 @@ class AboutUsController extends Controller
      */
     public function store(AboutusRequest $request)
     {
+       
+
         AboutUs::create([
             'title' => $request->title,
-            'body' => $request->body,
-            'status' => $request->status
+            'description' => $request->description,
+            'image' => $request->image,
         ]);
         return ApiResponse('About us created successfully');
     }
@@ -64,11 +66,20 @@ class AboutUsController extends Controller
     public function update(AboutusRequest $request, $id)
     {
        $aboutus = AboutUs::findOrFail($id);
-        $aboutus->update([
-            'title' => $request->title,
-            'body' => $request->body,
-            'status' => $request->status
-        ]);
+
+       $image = $request->image;
+        if($image){
+            $aboutus->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => $iamge,
+            ]);
+        }else{
+            $aboutus->update([
+                'title' => $request->title,
+                'description' => $request->description,
+            ]);
+        }
         return ApiResponse('About us updated successfully');
     }
 

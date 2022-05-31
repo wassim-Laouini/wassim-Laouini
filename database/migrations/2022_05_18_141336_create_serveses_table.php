@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('serveses', function (Blueprint $table) {
             $table->id();
-            $table->string('icon');
-            $table->string('title');
-            $table->string('slug');
-            $table->text('description'); 
+            $table->longText('image');
+            $table->string('title',30);
+            $table->tinyText('description'); 
+            $table->tinyInteger('status')->default(0)->comment('1 is refrence to active , 0 is inactive');
             $table->timestamps();
         });
     }

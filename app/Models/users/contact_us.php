@@ -10,11 +10,12 @@ class contact_us extends Model
     use HasFactory;
     protected $table="contact_us";
     protected $fillable=[
-    'phone',
+    'name',
     'email',
-    'upwork_link',
-    'map',
-    'status',
+    'phone',
+    'description',
     ];
-    
+    public function ScopeActive($q){
+        return $q->where('status',1);
+    }
 }

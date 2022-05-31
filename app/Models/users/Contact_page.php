@@ -5,18 +5,17 @@ namespace App\Models\users;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AboutUs extends Model
+class Contact_page extends Model
 {
     use HasFactory;
-    protected $table= "about_us" ;
+    protected $table="contact_pages";
     protected $fillable = [
-        'title',
-        'description',
         'image',
-        'status',
+        'body',
+        'status'
         
     ];
-    public function ScopeActive($q){
-        return $q->where('status',1);
-    }
+    protected $casts = [
+        'body' => 'array',
+    ];
 }

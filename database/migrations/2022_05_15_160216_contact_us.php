@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->id();
-            $table->string('phone')->unique();
-            $table->string('email')->unique();
-            $table->tinyText('upwork_link');
-            $table->string('map')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->string('name',50);
+            $table->string('email',150);
+            $table->string('phone',20);
+            $table->tinyText('description');
             $table->timestamps();
             
         });

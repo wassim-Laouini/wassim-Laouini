@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Serveses extends Model
 {
     
-    protected $table="contact_us";
+    protected $table="serveses";
     protected $fillable=[
-    'phone',
-    'email',
-    'upwork_link',
-    'map',
+    'image',
+    'title',
+    'description',
     'status',
     ];
+    public function ScopeActive($q){
+        return $q->where('status',1);
+    }
+
 }
