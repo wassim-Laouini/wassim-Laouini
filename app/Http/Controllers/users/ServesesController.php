@@ -12,11 +12,11 @@ class ServesesController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['userpermission:show_service'])->only('index','show');
-        $this->middleware(['userpermission:create_service'])->only('store');
-        $this->middleware(['userpermission:update_service'])->only('update');
-        $this->middleware(['userpermission:delete_service'])->only('destroy');
-        $this->middleware(['userpermission:active_service'])->only('active');
+        //   $this->middleware(['userpermission:show_service'])->only('index','show');
+        //   $this->middleware(['userpermission:create_service'])->only('store');
+        //   $this->middleware(['userpermission:update_service'])->only('update');
+        //   $this->middleware(['userpermission:delete_service'])->only('destroy');
+        //   $this->middleware(['userpermission:active_service'])->only('active');
 
     }
     /**
@@ -26,8 +26,8 @@ class ServesesController extends Controller
      */
     public function index()
     {
-       $serveses = Serveses::all();
-       return ApiResponse('success',$serveses);
+        $serveses = Serveses::all();
+        return ApiResponse('success', $serveses);
     }
 
     /**
@@ -40,7 +40,7 @@ class ServesesController extends Controller
     {
         Serveses::Create([
             'image' => $request->image,
-            'title' =>$request->title,
+            'title' => $request->title,
             'description' => $request->description,
         ]);
         return ApiResponse('Service created successfully');
@@ -54,8 +54,8 @@ class ServesesController extends Controller
      */
     public function show($id)
     {
-       $serveses = Serveses::findOrFail($id);
-       return ApiResponse('success',$serveses);
+        $serveses = Serveses::findOrFail($id);
+        return ApiResponse('success', $serveses);
     }
 
     /**
@@ -69,15 +69,15 @@ class ServesesController extends Controller
     {
         $serveses = Serveses::findOrFail($id);
         $image = $request->image;
-        if($image){
+        if ($image) {
             $serveses->update([
                 'image' => $image,
-                'title' =>$request->title,
+                'title' => $request->title,
                 'description' => $request->description,
             ]);
-        }else{
+        } else {
             $serveses->update([
-                'title' =>$request->title,
+                'title' => $request->title,
                 'description' => $request->description,
             ]);
         }
@@ -97,15 +97,16 @@ class ServesesController extends Controller
     }
 
 
-    public function active($id){
+    public function active($id)
+    {
 
         $serveses = Serveses::findOrFail($id);
-        if($serveses->status == 1){
+        if ($serveses->status == 1) {
             $serveses->update([
                 'status' => 0
             ]);
             return ApiResponse('service unactivated successfully');
-        }else{
+        } else {
             $serveses->update([
                 'status' => 1
             ]);

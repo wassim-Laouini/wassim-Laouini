@@ -15,11 +15,11 @@ class AdminsController extends Controller
     public function __construct()
     {
 
-        $this->middleware(['userpermission:create_admin'])->only('create');
-        $this->middleware(['userpermission:active_admin'])->only('active');
-        $this->middleware(['userpermission:show_admin'])->only('show','index');
-        $this->middleware(['userpermission:delete_admin'])->only('destroy');
-        $this->middleware(['userpermission:update_admin'])->only('update');
+        //  $this->middleware(['userpermission:create_admin'])->only('create');
+        //  $this->middleware(['userpermission:active_admin'])->only('active');
+        // $this->middleware(['userpermission:show_admin'])->only('show', 'index');
+        // $this->middleware(['userpermission:delete_admin'])->only('destroy');
+        //$this->middleware(['userpermission:update_admin'])->only('update');
     }
     /**
      * Display a listing of the resource.
@@ -29,7 +29,7 @@ class AdminsController extends Controller
     public function index()
     {
         $users = User::all();
-        return ApiResponse('success',$users);
+        return ApiResponse('success', $users);
     }
 
     /**
@@ -40,12 +40,16 @@ class AdminsController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        User::Create([
+
+        $user = User::Create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            //'role' => $request->role,
+            'status' => $request->status,
         ]);
-        return ApiResponse('User created successfully','',200);
+        // $user->assignRole($request->role);
+        return ApiResponse('User created successfully', '', 200);
     }
 
     /**
@@ -56,8 +60,8 @@ class AdminsController extends Controller
      */
     public function show($id)
     {
-        $user =User::findOrFail($id);
-        return ApiResponse('success',$user);
+        $user = User::findOrFail($id);
+        return ApiResponse('success', $user);
     }
 
     /**
@@ -69,16 +73,18 @@ class AdminsController extends Controller
      */
     public function update(AdminRequest $request, $id)
     {
-        $user =User::findOrFail($id);
+        $user = User::findOrFail($id);
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'age' => $request->age, 
+            'age' => $request->age,
             'country' => $request->country,
             'status' => $request->status,
             'gender' => $request->gender,
-            //'role' => $request->role,
+            //  'role' => $request->role,
+
         ]);
+        //$user->assignRole($request->role);
         return ApiResponse('Admin updated successfully');
     }
 
@@ -95,18 +101,19 @@ class AdminsController extends Controller
         return ApiResponse('Admin deleted successfully');
     }
 
-    public function active($id){ 
+    public function active($id)
+    {
         $user =  User::findOrFail($id);
-        if($user->status == 1){
+        if ($user->status == 1) {
             $user->update([
                 'status' => 0
             ]);
-            return ApiResponse($user->name.' is now inactive');
-        }else{  
+            return ApiResponse($user->name . ' is now inactive');
+        } else {
             $user->update([
                 'status' => 1
             ]);
-            return ApiResponse($user->name.' is now active');
+            return ApiResponse($user->name . ' is now active');
         }
-    }    
+    }
 }

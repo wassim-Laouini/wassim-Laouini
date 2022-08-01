@@ -12,8 +12,8 @@ class Contact_usController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['userpermission:show_coutact_us'])->only('index','show');
-        $this->middleware(['userpermission:delete_coutact_us'])->only('destroy');
+        //  $this->middleware(['userpermission:show_coutact_us'])->only('index','show');
+        //  $this->middleware(['userpermission:delete_coutact_us'])->only('destroy');
 
     }
     /**
@@ -25,7 +25,7 @@ class Contact_usController extends Controller
     {
         $contact = contact_us::all();
 
-        return ApiResponse('contact us data',$contact,200);
+        return ApiResponse('contact us data', $contact, 200);
     }
 
     /**
@@ -38,13 +38,13 @@ class Contact_usController extends Controller
     {
 
         contact_us::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'phone'=>$request->phone,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
             'description' => $request->description
-      
-           ]);
-           return ApiResponse('About us created successfully');
+
+        ]);
+        return ApiResponse('About us created successfully');
     }
 
     /**
@@ -56,7 +56,7 @@ class Contact_usController extends Controller
     public function show($id)
     {
         $contact_us  = contact_us::findOrFail($id);
-        return ApiResponse('success',$contact_us);
+        return ApiResponse('success', $contact_us);
     }
 
     /**
@@ -66,8 +66,9 @@ class Contact_usController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(){
-        return ApiResponse('you can\'t update ',null,404);
+    public function update()
+    {
+        return ApiResponse('you can\'t update ', null, 404);
     }
 
     /**
@@ -78,9 +79,8 @@ class Contact_usController extends Controller
      */
     public function destroy($id)
     {
-        $contact_us =contact_us::findOrFail($id);
+        $contact_us = contact_us::findOrFail($id);
         $contact_us->delete();
-       return  ApiResponse('Contact us deleted successfully');
+        return  ApiResponse('Contact us deleted successfully');
     }
-
-    }
+}

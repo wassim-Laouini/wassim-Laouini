@@ -549,6 +549,7 @@ class ComposerStaticInite1ac6067e800e9dab4fc1eda385bbcb7
         'App\\Http\\Controllers\\admins\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/admins/AuthController.php',
         'App\\Http\\Controllers\\admins\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/admins/RoleController.php',
         'App\\Http\\Controllers\\users\\AboutUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/users/AboutUsController.php',
+        'App\\Http\\Controllers\\users\\Contact_pageController' => __DIR__ . '/../..' . '/app/Http/Controllers/users/Contact_pageController.php',
         'App\\Http\\Controllers\\users\\Contact_usController' => __DIR__ . '/../..' . '/app/Http/Controllers/users/Contact_usController.php',
         'App\\Http\\Controllers\\users\\ServesesController' => __DIR__ . '/../..' . '/app/Http/Controllers/users/ServesesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',

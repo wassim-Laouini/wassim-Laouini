@@ -11,17 +11,17 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
-    
-    
+
+
     public function __construct()
     {
 
-        $this->middleware(['userpermission:create_role'])->only('create');
-        $this->middleware(['userpermission:show_role'])->only('show','index');
-        $this->middleware(['userpermission:delete_role'])->only('destroy');
-        $this->middleware(['userpermission:update_role'])->only('update');
+        //$this->middleware(['userpermission:create_role'])->only('create');
+        // $this->middleware(['userpermission:show_role'])->only('show','index');
+        //  $this->middleware(['userpermission:delete_role'])->only('destroy');
+        //$this->middleware(['userpermission:update_role'])->only('update');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -29,8 +29,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $role =Role::get();
-        return ApiResponse('success',RoleResource::collection($role));
+        $role = Role::get();
+        return ApiResponse('success', RoleResource::collection($role));
     }
 
     /**
@@ -40,12 +40,12 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(RoleRequest $request)
-    {    
+    {
 
-        $role =Role::create([
+        $role = Role::create([
             'name' => $request->name,
         ]);
-         $role->syncPermissions($request->permissions);
+        $role->syncPermissions($request->permissions);
         return ApiResponse('Role created successfully');
     }
 
@@ -58,7 +58,7 @@ class RoleController extends Controller
     public function show($id)
     {
         $role = Role::findOrFail($id);
-        return ApiResponse('success',$role);
+        return ApiResponse('success', $role);
     }
 
     /**
@@ -70,10 +70,10 @@ class RoleController extends Controller
      */
     public function update(RoleRequest $request, $id)
     {
-        $role =Role::FindOrFail($id)->update([
+        $role = Role::FindOrFail($id)->update([
             'name' => $request->name,
         ]);
-         $role->syncPermissions($request->permissions);
+        $role->syncPermissions($request->permissions);
         return ApiResponse('Role updated successfully');
     }
 
