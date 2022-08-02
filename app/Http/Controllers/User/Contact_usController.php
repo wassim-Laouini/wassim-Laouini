@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\users;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\users\ContactRequest;
-use App\Models\users\contact_us;
+use App\Http\Requests\User\ContactRequest;
+use App\Models\User\contact_us;
 use Illuminate\Http\Request;
 
 

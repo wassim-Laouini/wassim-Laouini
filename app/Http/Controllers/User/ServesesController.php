@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\users;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\users\ServesesRequest;
-use App\Models\users\Serveses;
+use App\Http\Requests\User\ServesesRequest;
+use App\Models\User\Serveses;
 use Illuminate\Http\Request;
 
 class ServesesController extends Controller

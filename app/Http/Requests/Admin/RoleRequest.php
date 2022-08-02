@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\admins;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class RoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:50|unique:roles,name,'.$this->id.'id',
+            'name' => 'required|string|max:50|unique:roles,name,' . $this->id . 'id',
             'permissions' => 'exists:permissions,id|required|array',
         ];
     }

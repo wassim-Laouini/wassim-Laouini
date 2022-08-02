@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\users;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\users\AboutusRequest;
-use App\Models\users\AboutUs;
+use App\Http\Requests\User\AboutusRequest;
+use App\Models\User\AboutUs;
 use Illuminate\Http\Request;
 
 class AboutUsController extends Controller

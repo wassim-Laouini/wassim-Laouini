@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\admins\AdminsController;
-use App\Http\Controllers\admins\AuthController;
-use App\Http\Controllers\admins\RoleController;
-use App\Http\Controllers\users\AboutUsController;
-use App\Http\Controllers\users\Contact_usController;
-use App\Http\Controllers\users\ServesesController;
+use App\Http\Controllers\Admin\AdminsController;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\User\AboutUsController;
+use App\Http\Controllers\User\Contact_usController;
+use App\Http\Controllers\User\ServesesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,23 +22,23 @@ use Illuminate\Support\Facades\Route;
 
 //------------------admin dashbord-------------------
 //--admin
-Route::post('/admin/login',[AuthController::class,'login']);
+Route::post('/admin/login', [AuthController::class, 'login']);
 
 Route::middleware(['AdminAuth'])->group(function () {
    //about us
-   Route::apiResource('/about-us',AboutUsController::class);
-   Route::get("/about-us/status/{id}",[AboutUsController::class,'active']);
+   Route::apiResource('/about-us', AboutUsController::class);
+   Route::get("/about-us/status/{id}", [AboutUsController::class, 'active']);
    // contact us 
-   Route::apiResource('/contact-us',Contact_usController::class);
-   Route::get("/contact-us/status/{id}",[Contact_usController::class,'active']);
+   Route::apiResource('/contact-us', Contact_usController::class);
+   Route::get("/contact-us/status/{id}", [Contact_usController::class, 'active']);
    //create admin
-   Route::apiResource('/admin',AdminsController::class);
-   Route::get('/admin-status/{id}',[AdminsController::class,'active']);
+   Route::apiResource('/admin', AdminsController::class);
+   Route::get('/admin-status/{id}', [AdminsController::class, 'active']);
    //role
-   Route::apiResource('/role',RoleController::class);
+   Route::apiResource('/role', RoleController::class);
    //serveses
-   Route::apiResource('/serveses',ServesesController::class);
-   Route::get("/serveses/status/{id}",[ServesesController::class,'active']);
+   Route::apiResource('/serveses', ServesesController::class);
+   Route::get("/serveses/status/{id}", [ServesesController::class, 'active']);
 });
 
 //------------------admin dashbord-------------------

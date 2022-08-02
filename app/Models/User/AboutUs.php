@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\users;
+namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -8,15 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class AboutUs extends Model
 {
     use HasFactory;
-    protected $table= "about_us" ;
+    protected $table = "about_us";
     protected $fillable = [
         'title',
         'description',
         'image',
         'status',
-        
+
     ];
-    public function ScopeActive($q){
-        return $q->where('status',1);
+    public function ScopeActive($q)
+    {
+        return $q->where('status', 1);
     }
 }
