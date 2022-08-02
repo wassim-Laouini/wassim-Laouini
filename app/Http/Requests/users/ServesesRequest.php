@@ -23,10 +23,18 @@ class ServesesRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'image' => 'sometimes|required',
-            'title'=> 'required|string|max:40|min:5',
-            'description' => 'required|string|max:2000',
-        ];
+        if (request()->isMethod('post')) {
+            return [
+                'image' => 'required|mimes:' . Photo_Extension(),
+                'title' => 'required|string|max:40|min:5',
+                'description' => 'required|string|max:2000',
+            ];
+        } else {
+            return [
+                'image' => 'mimes:' . Photo_Extension(),
+                'title' => 'required|string|max:40|min:5',
+                'description' => 'required|string|max:2000',
+            ];
+        }
     }
 }

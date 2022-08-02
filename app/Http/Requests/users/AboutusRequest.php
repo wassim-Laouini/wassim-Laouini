@@ -23,10 +23,18 @@ class AboutusRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|max:200|min:10|string',
-            'description' => 'required|max:10000|min:10|string',
-            'image' => 'sometimes|required',
-        ];
+        if (request()->isMethod('post')) {
+            return [
+                'title' => 'required|max:200|string',
+                'description' => 'required|max:10000|string',
+                'image' => 'required|mimes:' . Photo_Extension(),
+            ];
+        } else {
+            return [
+                'title' => 'required|max:200|string',
+                'description' => 'required|max:10000|string',
+                'image' => 'mimes:' . Photo_Extension(),
+            ];
+        }
     }
 }
