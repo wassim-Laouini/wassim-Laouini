@@ -6,7 +6,6 @@ use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\Team_membersController;
-use App\Http\Controllers\User\AboutUsController;
 use App\Http\Controllers\User\Contact_usController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +37,7 @@ Route::apiResource('/contact-us', Contact_usController::class);
 //Route::apiResource('/admin', AdminsController::class);
 //Route::get('/admin-status/{id}', [AdminsController::class, 'active']);
 //role
-Route::apiResource('/role', RoleController::class);
+//Route::apiResource('/role', RoleController::class);
 //serveses
 Route::apiResource('/services', ServicesController::class);
 Route::get("/services/status/{id}", [ServicesController::class, 'active']);
