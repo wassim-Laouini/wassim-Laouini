@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('serveses', function (Blueprint $table) {
+        Schema::create('team_members', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
             $table->longText('image');
-            $table->string('title',30);
-            $table->tinyText('description'); 
+            $table->string('email')->nullable();
+            $table->tinyText('description');
+            $table->string('profession');
+            $table->string('upwork_link')->nullable();
+            $table->string('profile_link')->nullable();
             $table->tinyInteger('status')->default(0)->comment('1 is refrence to active , 0 is inactive');
             $table->timestamps();
         });
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('serveses');
+        Schema::dropIfExists('teams');
     }
 };

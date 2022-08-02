@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admins;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\admins\AdminRequest;
+use App\Http\Requests\Admin\AdminRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -29,7 +29,7 @@ class AdminsController extends Controller
     public function index()
     {
         $users = User::all();
-        return ApiResponse('success', $users);
+        return ApiResponse('Success', $users);
     }
 
     /**
@@ -61,7 +61,7 @@ class AdminsController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return ApiResponse('success', $user);
+        return ApiResponse('Success', $user);
     }
 
     /**

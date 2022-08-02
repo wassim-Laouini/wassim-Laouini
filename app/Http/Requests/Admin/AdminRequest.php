@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\admins;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -37,7 +37,6 @@ class AdminRequest extends FormRequest
             return [
                 'name' => 'required|string|max:24|min:4',
                 'email' => 'required|email|max:100|min:10|unique:users,email,' . $this->id,
-                'password' => 'string|max:50|min:6|confirmed',
                 'age' => 'numeric|max:100|min:1|',
                 'status' => 'required|numeric|between:0,1',
                 'gender' => 'string|max:20|min:3',

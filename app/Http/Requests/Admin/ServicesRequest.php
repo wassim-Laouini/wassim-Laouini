@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\users;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AboutusRequest extends FormRequest
+class ServicesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,15 +25,15 @@ class AboutusRequest extends FormRequest
     {
         if (request()->isMethod('post')) {
             return [
-                'title' => 'required|max:200|string',
-                'description' => 'required|max:10000|string',
                 'image' => 'required|mimes:' . Photo_Extension(),
+                'title' => 'required|string|max:40|min:5',
+                'description' => 'required|string|max:2000',
             ];
         } else {
             return [
-                'title' => 'required|max:200|string',
-                'description' => 'required|max:10000|string',
                 'image' => 'mimes:' . Photo_Extension(),
+                'title' => 'required|string|max:40|min:5',
+                'description' => 'required|string|max:2000',
             ];
         }
     }

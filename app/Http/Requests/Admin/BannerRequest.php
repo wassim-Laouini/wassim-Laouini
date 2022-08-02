@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\admins;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RoleRequest extends FormRequest
+class BannerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class RoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:50|unique:roles,name,'.$this->id.'id',
-            'permissions' => 'exists:permissions,id|required|array',
+            'text' => 'required|string|max:1000',
         ];
     }
 }

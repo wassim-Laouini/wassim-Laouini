@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\users;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ContactRequest extends FormRequest
+class RoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50|string',
-            'email' => 'required|max:150|min:10|email',
-            'phone' => 'numeric|required|max:20',
-            'description' => 'required|max:2000|min:10'
-
+            'name' => 'required|string|max:50|unique:roles,name,' . $this->id . 'id',
+            'permissions' => 'exists:permissions,id|required|array',
         ];
     }
 }
