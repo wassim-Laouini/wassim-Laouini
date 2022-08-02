@@ -1,18 +1,23 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models\Admin;
+
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contact_us extends Model
+class Team_members extends Model
 {
-
-    protected $table = "contact_us";
+    protected $table = "team_members";
     protected $fillable = [
         'name',
+        'image',
         'email',
-        'phone',
+        'profession',
         'description',
+        'upwork_link',
+        'profile_link',
+        'status',
+
     ];
     public function ScopeActive($q)
     {

@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Models\User;
-
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Serveses extends Model
+class Service extends Model
 {
-
-    protected $table = "serveses";
+    protected $table = "services";
     protected $fillable = [
         'image',
         'title',
         'description',
         'status',
+
+
     ];
     public function ScopeActive($q)
     {

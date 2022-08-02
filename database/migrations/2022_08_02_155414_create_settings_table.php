@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contact_pages', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->longText('image');
-            $table->text('body');
-            $table->tinyInteger('status')->default(0)->comment('1 is refrence to active , 0 is inactive');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_pages');
+        Schema::dropIfExists('settings');
     }
 };

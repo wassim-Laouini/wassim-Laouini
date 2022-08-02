@@ -29,7 +29,7 @@ class AdminsController extends Controller
     public function index()
     {
         $users = User::all();
-        return ApiResponse('success', $users);
+        return ApiResponse('Success', $users);
     }
 
     /**
@@ -61,7 +61,7 @@ class AdminsController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return ApiResponse('success', $user);
+        return ApiResponse('Success', $user);
     }
 
     /**

@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\Team_membersController;
 use App\Http\Controllers\User\AboutUsController;
 use App\Http\Controllers\User\Contact_usController;
-use App\Http\Controllers\User\ServesesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,23 +24,24 @@ use Illuminate\Support\Facades\Route;
 
 //------------------admin dashbord-------------------
 //--admin
-Route::post('/admin/login', [AuthController::class, 'login']);
+//Route::post('/admin/login', [AuthController::class, 'login']);
 
-Route::middleware(['AdminAuth'])->group(function () {
-   //about us
-   Route::apiResource('/about-us', AboutUsController::class);
-   Route::get("/about-us/status/{id}", [AboutUsController::class, 'active']);
-   // contact us 
-   Route::apiResource('/contact-us', Contact_usController::class);
-   Route::get("/contact-us/status/{id}", [Contact_usController::class, 'active']);
-   //create admin
-   Route::apiResource('/admin', AdminsController::class);
-   Route::get('/admin-status/{id}', [AdminsController::class, 'active']);
-   //role
-   Route::apiResource('/role', RoleController::class);
-   //serveses
-   Route::apiResource('/serveses', ServesesController::class);
-   Route::get("/serveses/status/{id}", [ServesesController::class, 'active']);
-});
+//Route::middleware(['AdminAuth'])->group(function () {
+//Team members
+Route::apiResource('/team-members', Team_membersController::class);
+Route::get("/team-members/status/{id}", [Team_membersController::class, 'active']);
+//Banner
+Route::apiResource('/banner', BannersController::class);
+// contact us 
+Route::apiResource('/contact-us', Contact_usController::class);
+//create admin
+//Route::apiResource('/admin', AdminsController::class);
+//Route::get('/admin-status/{id}', [AdminsController::class, 'active']);
+//role
+Route::apiResource('/role', RoleController::class);
+//serveses
+Route::apiResource('/services', ServicesController::class);
+Route::get("/services/status/{id}", [ServicesController::class, 'active']);
+//});
 
 //------------------admin dashbord-------------------

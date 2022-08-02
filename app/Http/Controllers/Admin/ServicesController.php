@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\ServesesRequest;
-use App\Models\User\Serveses;
+use App\Http\Requests\Admin\ServicesRequest;
 use Illuminate\Http\Request;
 
-class ServesesController extends Controller
+class ServicesController extends Controller
 {
-
     public function __construct()
     {
         //   $this->middleware(['userpermission:show_service'])->only('index','show');
@@ -27,7 +25,7 @@ class ServesesController extends Controller
     public function index()
     {
         $serveses = Serveses::all();
-        return ApiResponse('success', $serveses);
+        return ApiResponse('Success', $serveses);
     }
 
     /**
@@ -36,7 +34,7 @@ class ServesesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServesesRequest $request)
+    public function store(ServicesRequest $request)
     {
         Serveses::Create([
             'image' => $request->image,
@@ -55,7 +53,7 @@ class ServesesController extends Controller
     public function show($id)
     {
         $serveses = Serveses::findOrFail($id);
-        return ApiResponse('success', $serveses);
+        return ApiResponse('Success', $serveses);
     }
 
     /**
@@ -65,7 +63,7 @@ class ServesesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ServesesRequest $request, $id)
+    public function update(ServicesRequest $request, $id)
     {
         $serveses = Serveses::findOrFail($id);
         $image = $request->image;
@@ -94,6 +92,7 @@ class ServesesController extends Controller
     {
         $serveses = Serveses::findOrFail($id);
         $serveses->delete();
+        return ApiResponse('Service Deleted successfully');
     }
 
 
@@ -105,12 +104,12 @@ class ServesesController extends Controller
             $serveses->update([
                 'status' => 0
             ]);
-            return ApiResponse('service unactivated successfully');
+            return ApiResponse('Service unactivated successfully');
         } else {
             $serveses->update([
                 'status' => 1
             ]);
-            return ApiResponse('service activated successfully');
+            return ApiResponse('Service activated successfully');
         }
     }
 }
