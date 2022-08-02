@@ -63,8 +63,8 @@
 }
 
 .servicescomponent_adminPanel{
-    width: 349.92px;
-    height: 339.77px;
+    width: 360px;
+    height: 350px;
     border-radius: 8px;
     margin-top: 5px;
     margin-bottom: 20px;
@@ -138,4 +138,7 @@
 }
 .adminPanel_saveButton:hover{
     cursor: pointer;
+}
+.adminPanel_userProfileImage{
+    border-radius: 50%;
 }
