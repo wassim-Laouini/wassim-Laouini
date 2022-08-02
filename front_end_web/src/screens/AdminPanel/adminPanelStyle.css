@@ -1,0 +1,13 @@
+
+ .AdminPanel_Container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+ }
+ .AdminPanel_SidebarContainer{
+    width: 20%;
+ }
+ .AdminPanel_ContentContainer{
+    width: 80%;
+ }

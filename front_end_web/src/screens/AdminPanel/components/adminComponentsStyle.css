@@ -1,0 +1,141 @@
+.AdminSidebar_Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    left: 0px;
+    background-color:#1F252B;
+    height: 100%;
+    flex: 1;
+    position: fixed;
+    width: 20%;
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 20px #000000;
+    box-shadow:         inset 0 0 50px #000000;
+}
+.AdminSidebar_top_image{
+    width: 69px;
+    height: 82px;
+    margin-top: 50px;
+}
+
+.AdminSidebar_footer_image{
+    width: 235px;
+    height: 49px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.AdminSidebar_Menu{
+    width: 100%;
+    color: white;
+    transition: color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+} 
+.AdminSidebar_Menu_item{
+    text-align: justify;
+    line-height: 70px;
+    padding-left: 37px;
+    width: 100%;
+    font-weight: bold;
+    font-family: commonFont;
+}
+.AdminSidebar_Menu_item:hover {
+    color: #1F252B;
+    cursor: pointer;
+    background-color: #FFFFFF;
+}
+.selectedSidebar_menu{
+    color: #1F252B;
+    background-color: #FFFFFF;
+}
+
+.services-wrapper_adminPanel{
+    width:75%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.servicescomponent_adminPanel{
+    width: 349.92px;
+    height: 339.77px;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px ;
+    background-color: #ffffff;
+    box-shadow: 4px 10px 15px -4px rgba(0, 0, 0, 0.17);
+    transition: all .5s ;
+    }
+.servicescomponent_adminPanel:hover{
+    transform: translateY(-10px);
+} 
+  .services-icon_adminPanel {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+  .serviceswrapper_adminPanel img{
+    transition: all .8s ;
+}
+.servicescomponent_adminPanel:hover .serviceswrapper_adminPanel img {
+    transform: rotateY(160deg);
+}
+    
+ .services-text_adminPanelH3Tag{
+    font-size: 20px;
+    font-weight: 700;
+    color: #01050A;
+    line-height: 25px;
+}
+ .services-text_adminPanelPTag {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 15px;
+    line-height: 18px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    color: #969696;
+    word-wrap: break-word;
+}
+ 
+.services_adminPanel{
+    width: 100%;
+    height: 100%;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.services-component_adminPanel_topIcons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.services_adminPanel_editButton{
+    cursor: pointer;
+}
+ .adminPanel_editItem{
+    border:1px solid #ccc;
+    padding:3px;
+    border-radius: 5px;
+}
+.adminPanel_saveButton{
+    width: 100px;
+    align-self: center;
+    color:#FAFAFA ;
+    background-color: #432C11;
+    height: 35px;
+}
+.adminPanel_saveButton:hover{
+    cursor: pointer;
+}

@@ -8,6 +8,7 @@ import AdminPanel from "./screens/AdminPanel";
 import { Main as MainLayout } from "./layouts";
 import ContactUs from "./screens/ContactUS/ContactUs";
 import Services from "./screens/Services";
+import Login from "./screens/Login";
 //* we're using react-router-dom package to handle navigation in our app
 //! here we can add as many pages/routes we want (creation happens in screens folder and then import here)
 //! componenets folder is for the components that are reusable from page to page
@@ -63,14 +64,13 @@ const RoutesComponent = () => {
                         </MainLayout>
                     }
                 />
+                <Route path="/adminPanel/login" element={<Login />} />
                 <Route
-                    path="/adminPanel/login"
+                    path="/adminPanel/login/abfbjjcdldss3sd2ffqq2sd5q3sd2qdas5dhjfg5hk2gh6"
                     //! for the moment all can access the admin panel till the token is handled in the backend then we can use it only after log in
                     element={
                         AuthService.checkRoute(userType) ? (
-                            <MainLayout>
-                                <AdminPanel />
-                            </MainLayout>
+                            <AdminPanel />
                         ) : (
                             <Navigate to="/" />
                         )
